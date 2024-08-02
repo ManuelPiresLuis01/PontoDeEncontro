@@ -4,7 +4,7 @@ var cont = 0
 
 parar = setInterval(function () {
     ++cont
-    if (cont == 5) { 
+    if (cont == 5) {
         document.querySelector(".loading").classList.add("fechar")
         cont = 0
         aparecer()
@@ -52,9 +52,11 @@ function aparecer() {
     })
 }
 
+let inputNome
 let inputSenha
 let btnVerSenha
 
+inputNome = document.getElementById("nome")
 inputSenha = document.getElementById("inputPass")
 btnVerSenha = document.getElementById("btnVerSenha")
 
@@ -70,4 +72,13 @@ btnVerSenha.addEventListener("click",
             btnVerSenha.style.color = "#fd5470"
         }
     })
+
+
+function entrar() {
+    inputNome.value=""
+    inputSenha.value=""
+    inputNome.focus()
+    inputSenha.focus()
+
+}
 
