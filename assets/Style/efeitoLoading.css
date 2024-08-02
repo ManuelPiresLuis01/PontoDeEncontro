@@ -1,0 +1,36 @@
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: pink;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 150px;
+}
+
+.loading.fechar {
+    display: none;
+}
+
+.loading i {
+    animation: boom 2.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes boom {
+    0% {
+        font-size: 150px;
+    }
+
+    100% {
+        font-size: 250px;
+    }
+}
+
+.btnEntrar,.a1,.a2{
+    visibility: hidden;
+}
