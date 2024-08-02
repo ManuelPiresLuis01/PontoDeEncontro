@@ -4,14 +4,15 @@ var cont = 0
 
 parar = setInterval(function () {
     ++cont
-    if (cont == 4) { 
+    if (cont == 5) { 
         document.querySelector(".loading").classList.add("fechar")
         cont = 0
         aparecer()
         clearInterval(parar)
     }
 
-}, 1000)
+}, 1)
+
 function aparecer() {
 
     revelar.reveal(".textoPrincipal", {
@@ -37,19 +38,18 @@ function aparecer() {
     revelar.reveal(".btnEntrar", {
         duration: 2000,
         distance: "50px",
-        delay: 1000
+        delay: 900
     })
     revelar.reveal(".a1", {
         duration: 2000,
         distance: "50px",
-        delay: 1100
+        delay: 1000
     })
     revelar.reveal(".a2", {
         duration: 2000,
         distance: "50px",
-        delay: 1200
+        delay: 1000
     })
-
 }
 
 let inputSenha
