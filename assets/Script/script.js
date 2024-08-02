@@ -11,7 +11,7 @@ parar = setInterval(function () {
         clearInterval(parar)
     }
 
-}, 1)
+}, 1000)
 
 function aparecer() {
 
