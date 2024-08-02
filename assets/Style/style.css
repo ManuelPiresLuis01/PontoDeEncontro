@@ -28,6 +28,7 @@ a {
 
 .links {
     margin: 10px;
+    font-family: roboto;
 }
 
 .links a:hover {
