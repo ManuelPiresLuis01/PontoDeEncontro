@@ -7,12 +7,12 @@
 }
 
 body {
-    background-color: #ffb6b9;
+    background-color: pink;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-     font-family: "Love Ya Like A Sister", cursive;
+    font-family: "Love Ya Like A Sister", cursive;
 }
 
 .main {
@@ -21,14 +21,18 @@ body {
 
 a {
     color: white;
+    margin-bottom:10px;
     display: block;
     text-decoration: none;
     transition: .5s;
 }
 
 .links {
-    margin: 10px;
-   /* font-family: "Roboto", sans-serif;*/
+    margin-top: 20px;
+}
+
+.links a {
+    margin: 0;
 }
 
 .links a:hover {
@@ -83,7 +87,7 @@ a {
     color: #fd5470;
 }
 
-.password i:hover{
+.password i:hover {
     cursor: pointer;
     background-color: #ff768d69;
 }

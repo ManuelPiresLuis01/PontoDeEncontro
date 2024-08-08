@@ -1,5 +1,4 @@
 window.revelar = ScrollReveal({ reset: true })
-
 var cont = 0
 
 parar = setInterval(function () {
@@ -11,7 +10,7 @@ parar = setInterval(function () {
         clearInterval(parar)
     }
 
-}, 1000)
+}, 1)
 
 function aparecer() {
 
@@ -40,12 +39,7 @@ function aparecer() {
         distance: "50px",
         delay: 900
     })
-    revelar.reveal(".a1", {
-        duration: 2000,
-        distance: "50px",
-        delay: 1000
-    })
-    revelar.reveal(".a2", {
+    revelar.reveal(".links", {
         duration: 2000,
         distance: "50px",
         delay: 1000
@@ -73,12 +67,11 @@ btnVerSenha.addEventListener("click",
         }
     })
 
-
 function entrar() {
-    inputNome.value=""
-    inputSenha.value=""
+   /* inputNome.value=""
+    inputSenha.value=""*/
     inputNome.focus()
     inputSenha.focus()
-
 }
 
+h
