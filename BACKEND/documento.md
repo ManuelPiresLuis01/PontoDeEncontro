@@ -1,7 +1,5 @@
 LISTAR TODOS OS USUARIOS
 GET:/USERS
-APAGAR TODOS OS USUARIOS
-delete:/del
 
 cadastro:
 POST:/sign-up
@@ -85,4 +83,47 @@ resposta perfil:
       "updated_at": "2025-03-03T12:53:37.000Z"
     }
   }
+}
+
+enviar mensagem
+POST:/sendMsg
+{
+  "emissor": "10",
+  "receptor": "7",
+  "content": "ola"
+}
+
+listar mensagens
+GET:/seeMsg
+{
+  "id": "10",
+}
+
+
+/*ATIVITY ROUTES */
+
+POST:/ativity
+{
+  "title": "festa de pijama",
+  "description": "melhor festa entre amigos e amigas",
+  "begin_date": "2025/03/07",
+  "end_date": "2025/03/07",
+  "user_id": "10"
+}
+
+POST:/confirm
+{
+  "id_activity": "3",
+  "user_id": "10"
+}
+
+GET:/seeAtivity
+{
+  "user_id": "10"
+}
+
+GET:/seeParticipants
+{
+  "id_activity": "1",
+  "user_id": "10"
 }

@@ -3,6 +3,8 @@ import bodyParser from "body-parser"
 import RegistryUserController from "../controller/RegistryUserController.js";
 import {Login,Logout} from "../controller/loginController.js";
 import Profile from "../controller/perfilController.js";
+import Message from "../controller/messageController.js";
+import Ativity from "../controller/ativityController.js";
 import CONECTION from "../database/conection/conection.js"
 
 const APP = express()
@@ -17,7 +19,6 @@ APP.put("/resend_activation_code", RegistryUserController.resendCode)
 APP.post("/add_interests", RegistryUserController.interests)
 APP.put("/add_description", RegistryUserController.addDescription)
 
-APP.get("/users", RegistryUserController.showAllUsers)
 
 /*login route */
 APP.post("/sign-in", Login)
@@ -28,11 +29,20 @@ APP.get("/logout",Logout)
 /*PROFILE ROUTE */
 APP.get("/profile", Profile)
 
+/*MESSAGE */
+APP.post("/sendMsg",Message.sendMessage)
+APP.get("/seeMsg",Message.listAllMessageById)
 
-
+/*ATIVITY ROUTES */
+APP.post("/ativity",Ativity.saveAtivity)
+APP.post("/confirm",Ativity.confirmAtivity)
+APP.get("/seeAtivity",Ativity.seeAll)
+APP.get("/seeParticipants",Ativity.seeAllParticipants)
 
 
 /*MORE ROUTES */
+APP.get("/users", RegistryUserController.showAllUsers)
+
 APP.delete("/del", (req, res) => {
     const sql = "delete from users"
     CONECTION.query(sql, (error, response) => {
