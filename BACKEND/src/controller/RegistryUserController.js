@@ -1,5 +1,5 @@
 import CONECTION from "../database/conection/conection.js"
-import { hashPassword } from "../auth/authBcryptService.js";
+import { hash } from "../auth/authBcryptService.js";
 //import { sendActivationEmail } from "../auth/authEmailService.js";
 
 class RegistryUser {
@@ -26,7 +26,7 @@ class RegistryUser {
 
     async Registry1(req, res) {
         const { name, birth_date, email, gender, password } = req.body
-        const hash_Password = await hashPassword(password)
+        const hash_Password = await hash(password)
         const Code = Math.floor(100000 + Math.random() * 900000).toString();
 
         if (!name || !birth_date || !email || !gender || !password) {

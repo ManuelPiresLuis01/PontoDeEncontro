@@ -1,27 +1,42 @@
-import { comparePassword } from "../auth/authBcryptService.js"
-import CONECTION from "../database/conection/conection.js"
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import CONECTION from '../database/conection/conection.js';
 
-export default function Login(req, res) {
-    const { email, password } = req.body
-    const sql = "SELECT id,name ,email,passwordWHERE email =  ?"
+const SECRET_KEY = 'teste'; 
+
+
+export function Login(req, res) {
+    const { email, password } = req.body;
+    const sql = "SELECT id, name, email, password FROM users WHERE email = ?";
 
     if (!email || !password) {
-        res.status(404).json({ message: "digite email e senha" })
+        return res.status(400).json({ message: "Digite email e senha" });
     }
 
-    CONECTION.query(sql, [email], (error, response) => {
+    CONECTION.query(sql, [email], async (error, results) => {
         if (error) {
-            res.status(500).json({ message: "erro no servidor" })
-        } else if (response[0].length == 0) {
-            res.status(404).json({ message: "email ou password errada" })
-        } else {
-            const hash = response[0].password
-            const status = comparePassword(password, hash)
-            if (status) {
-                res.json({ message: "Usuario Logado com sucesso", usuario: response[0].name })
-            } else {
-                res.status(404).json({ message: "email ou password errada" })
-            }
+            return res.status(500).json({ message: "Erro no servidor" });
         }
-    })
+
+        if (results.length === 0) {
+            return res.status(401).json({ message: "Email ou senha incorretos" });
+        }
+
+        const user = await results[0];
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: "Email ou senha incorretos" });
+        }
+
+        const token = jwt.sign({ userId: user.id, name: user.name, email: user.email }, SECRET_KEY, { expiresIn: '24h' });
+
+        res.status(200).json({ message: "Usuário logado com sucesso", token:token });
+    });
 }
+
+
+export function Logout(req, res) {
+    res.json({ message: "Usuário deslogado com sucesso" });
+}
+
