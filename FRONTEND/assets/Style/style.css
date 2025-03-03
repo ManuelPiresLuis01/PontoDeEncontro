@@ -1,0 +1,127 @@
+* {
+    outline-color: #fa7188;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none
+}
+
+body {
+    background-color: pink;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Love Ya Like A Sister", cursive;
+}
+
+.main {
+    margin-top: 130px;
+}
+
+a {
+    color: white;
+    margin-bottom:10px;
+    display: block;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.links a {
+    margin: 0;
+}
+
+.links a:hover {
+    color: #424242;
+    transform: scale(1.1);
+}
+
+.topo {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.topo h1 {
+    font-size: 40px;
+}
+
+.bi-arrow-through-heart-fill {
+    font-size: 60px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.formParaSignIn input {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 1px solid #ff768de1;
+}
+
+.password input {
+    margin: 0;
+    padding: 15px;
+    border: none;
+    background: none;
+}
+
+.bi-eyeglasses {
+    margin-left: -35px;
+    border-left: 1px solid #ff768d75;
+    font-size: 25px;
+    padding: 5px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: .5s;
+    color: #fd5470;
+}
+
+.password i:hover {
+    cursor: pointer;
+    background-color: #ff768d69;
+}
+
+.password {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 20px;
+    border: 1px solid #ff768de1;
+    background-color: white;
+}
+
+.btnEntrar {
+    color: white;
+    padding: 15px 40px;
+    background-color: #ff768de1;
+    border-radius: 20px;
+    margin: 10px 0;
+    transition: .5s;
+}
+
+.btnEntrar:hover {
+    cursor: pointer;
+    padding: 15px 70px;
+    background-color: #fa7188;
+}
+
+@media screen and (max-width:800px) {
+    .topo h1 {
+        font-size: 30px;
+    }
+
+    .topo i {
+        font-size: 45px;
+    }
+}

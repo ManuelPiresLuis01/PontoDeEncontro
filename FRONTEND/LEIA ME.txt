@@ -1,0 +1,25 @@
+Site calendario para adicionar as tarefas diarias, pra mim e a minha Namorada!
+
+Estrutura do Site:
+
+1-Sistema de admin para usuários (nome e password).
+
+2-Página principal com o calendário.
+
+3-Formúlario para adicionar/eliminar/editar eventos.
+
+
+paleta de cores para o website: 
+
+rosa=#ffb6b9,
+ rosa1=#fae3d6 ,
+ azul=#bbded6 , 
+verdeDescarregado=#61c0bf,
+ cinza=#aaaaaa
+
+tipo de letra: 
+ROBOTO,
+LOVE
+
+ICONES:
+BOOTSTRAP
