@@ -1,8 +1,20 @@
-LISTAR TODOS OS USUARIOS
-GET:/USERS
 
-cadastro:
-POST:/sign-up
+```markdown
+# Documentação da API - Ponto de Encontro
+
+## Usuários
+
+### Listar Todos os Usuários
+**Endpoint:** `GET /users`  
+**Descrição:** Retorna a lista de todos os usuários cadastrados.  
+
+---
+
+### Cadastro de Usuário
+**Endpoint:** `POST /sign-up`  
+**Descrição:** Cadastra um novo usuário no sistema.  
+**Body (JSON):**
+```json
 {
   "name": "teste",
   "birth_date": "2001/05/30",
@@ -10,23 +22,40 @@ POST:/sign-up
   "gender": "male",
   "password": "30/05/2001"
 }
+```
 
+---
 
-ativação de conta 
-PUT:/activation_account
+### Ativação de Conta
+**Endpoint:** `PUT /activation_account`  
+**Descrição:** Ativa a conta do usuário com um código enviado por e-mail.  
+**Body (JSON):**
+```json
 {
   "email": "wertyu@sdff",
-  "code":"111111"
+  "code": "111111"
 }
+```
 
-renviar codigo
-PUT:
+---
+
+### Reenviar Código de Ativação
+**Endpoint:** `PUT /reenviar_codigo`  
+**Descrição:** Reenvia o código de ativação para o e-mail do usuário.  
+**Body (JSON):**
+```json
 {
   "email": "wertyu@sdff"
 }
+```
 
-add interesses 
-POST:/add_interests
+---
+
+### Adicionar Interesses
+**Endpoint:** `POST /add_interests`  
+**Descrição:** Adiciona interesses ao perfil do usuário.  
+**Body (JSON):**
+```json
 {
   "email": "pires@sdff",
   "interests": [
@@ -36,34 +65,56 @@ POST:/add_interests
     "namorar"
   ]
 }
+```
 
-add descricao
-PUT:add_description
+---
+
+### Adicionar Descrição ao Perfil
+**Endpoint:** `PUT /add_description`  
+**Descrição:** Adiciona ou atualiza a descrição do perfil do usuário.  
+**Body (JSON):**
+```json
 {
   "email": "pires@sdff",
   "description": "rei dos piratas"
 }
+```
 
-login
-POST: /sign-in
+---
+
+### Login do Usuário
+**Endpoint:** `POST /sign-in`  
+**Descrição:** Autentica o usuário e retorna um token JWT.  
+**Body (JSON):**
+```json
 {
   "email": "teste@teste",
   "password": "123456789"
 }
+```
 
-resposta login:
+**Resposta (JSON):**
+```json
 {
   "message": "Usuário logado com sucesso",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJuYW1lIjoiUGlyZXMiLCJlbWFpbCI6InRlc3RlQHRlc3RlIiwiaWF0IjoxNzQxMDEzNzM2LCJleHAiOjE3NDExMDAxMzZ9.5UwwM3DZtHLfBvn3_ZmlNR_hHEhAM-1NJppx0N0q_mo"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
+```
 
-perfil
-GET: /profile
+---
+
+### Obter Perfil do Usuário
+**Endpoint:** `GET /profile`  
+**Descrição:** Retorna os dados do perfil do usuário autenticado.  
+**Headers:**
+```json
 {
   "token": "QWERTYJK4567IEGBVRTHGHJ"
 }
+```
 
-resposta perfil:
+**Resposta (JSON):**
+```json
 {
   "user": {
     "datas": {
@@ -74,7 +125,7 @@ resposta perfil:
       "gender": "male",
       "photo": null,
       "description": null,
-      "password": "$2b$10$oTFSjkCXfpDJlSyO9ymiiuQ/ErH6q5K15W0/j3jaUB8lfePvxT3gm",
+      "password": "$2b$10$oTFSjkCXfpDJlSyO9ymiiuQ...",
       "activationCode": "",
       "profile_photo": null,
       "status": "single",
@@ -84,25 +135,45 @@ resposta perfil:
     }
   }
 }
+```
 
-enviar mensagem
-POST:/sendMsg
+---
+
+## Mensagens
+
+### Enviar Mensagem
+**Endpoint:** `POST /sendMsg`  
+**Descrição:** Envia uma mensagem para outro usuário.  
+**Body (JSON):**
+```json
 {
   "emissor": "10",
   "receptor": "7",
   "content": "ola"
 }
+```
 
-listar mensagens
-GET:/seeMsg
+---
+
+### Listar Mensagens
+**Endpoint:** `GET /seeMsg`  
+**Descrição:** Retorna todas as mensagens de um usuário.  
+**Body (JSON):**
+```json
 {
-  "id": "10",
+  "id": "10"
 }
+```
 
+---
 
-/*ATIVITY ROUTES */
+## Atividades
 
-POST:/ativity
+### Criar Atividade
+**Endpoint:** `POST /ativity`  
+**Descrição:** Cria uma nova atividade/evento.  
+**Body (JSON):**
+```json
 {
   "title": "festa de pijama",
   "description": "melhor festa entre amigos e amigas",
@@ -110,20 +181,45 @@ POST:/ativity
   "end_date": "2025/03/07",
   "user_id": "10"
 }
+```
 
-POST:/confirm
+---
+
+### Confirmar Participação em Atividade
+**Endpoint:** `POST /confirm`  
+**Descrição:** Confirma a participação de um usuário em uma atividade.  
+**Body (JSON):**
+```json
 {
   "id_activity": "3",
   "user_id": "10"
 }
+```
 
-GET:/seeAtivity
+---
+
+### Listar Atividades do Usuário
+**Endpoint:** `GET /seeAtivity`  
+**Descrição:** Retorna a lista de atividades de um usuário.  
+**Body (JSON):**
+```json
 {
   "user_id": "10"
 }
+```
 
-GET:/seeParticipants
+---
+
+### Listar Participantes de uma Atividade
+**Endpoint:** `GET /seeParticipants`  
+**Descrição:** Retorna a lista de participantes de uma atividade específica.  
+**Body (JSON):**
+```json
 {
   "id_activity": "1",
   "user_id": "10"
 }
+```
+```
+
+Agora é só copiar e colar sem perder a formatação!
