@@ -1,6 +1,10 @@
 import jwt from "jsonwebtoken"
 import CONECTION from "../database/conection/conection.js";
-const SECRET_KEY = 'teste';
+import dotenv from "dotenv"
+
+dotenv.config()
+
+const SECRET_KEY = process.env.SECRET_KEY; 
 
 export default async function Profile(req, res) {
     const { token } = req.body;
@@ -17,7 +21,7 @@ export default async function Profile(req, res) {
                 return error
             } else {
                 const datas = response[0]
-                res.status(200).json({ user: { datas } });
+                res.status(200).json(datas);
             }
         }
         )

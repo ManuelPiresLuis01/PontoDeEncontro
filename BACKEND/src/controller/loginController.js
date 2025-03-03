@@ -1,9 +1,11 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import CONECTION from '../database/conection/conection.js';
+import dotenv from "dotenv"
 
-const SECRET_KEY = 'teste'; 
+dotenv.config()
 
+const SECRET_KEY = process.env.SECRET_KEY; 
 
 export function Login(req, res) {
     const { email, password } = req.body;

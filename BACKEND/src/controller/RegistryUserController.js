@@ -1,6 +1,6 @@
 import CONECTION from "../database/conection/conection.js"
 import { hash } from "../auth/authBcryptService.js";
-//import { sendActivationEmail } from "../auth/authEmailService.js";
+import { sendActivationEmail } from "../auth/authEmailService.js";
 
 class RegistryUser {
 
@@ -49,7 +49,7 @@ class RegistryUser {
                 res.status(501).json({ message: "Usuario não cadastrado", response: response })
                 console.error(error)
             } else {
-                //await sendActivationEmail(email, Code)
+                await sendActivationEmail(email, Code)
                 res.status(201).json({ message: `usuario cadastrado com sucesso , verifique o codigo de ativação no seu email`, codigo: Code })
             }
         })
@@ -90,10 +90,10 @@ class RegistryUser {
         });
     }
 
-    resendCode(req, res) {
+    async resendCode(req, res) {
         const { email } = req.body
         const code = Math.floor(100000 + Math.random() * 900000).toString();
-        //await sendActivationEmail(email, Code)
+        await sendActivationEmail(email, code)
         const sql = `UPDATE users SET activationCode = ? WHERE email = ? `;
         CONECTION.query(sql, [code, email], (error, response) => {
             if (error) {
