@@ -1,11 +1,14 @@
 import mysql from "mysql"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const CONECTION = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "",
-    database: "bd_ponto_de_encontro"
+    host: process.env.HOSTNAME,
+    port: process.env.DBPORT,
+    user: process.env.DBUSER,
+    password: process.env.DBPASSWORD,
+    database: process.env.DBNAME
 })
 
 CONECTION.connect((error) => {
