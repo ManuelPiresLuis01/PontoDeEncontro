@@ -1,16 +1,19 @@
 import express from "express";
 import bodyParser from "body-parser"
-import RegistryUserController from "../controller/RegistryUserController.js";
-import {Login,Logout} from "../controller/loginController.js";
-import Profile from "../controller/perfilController.js";
-import Message from "../controller/messageController.js";
-import Ativity from "../controller/ativityController.js";
-import CONECTION from "../database/conection/conection.js"
+import Cors from "cors"
+import RegistryUserController from "./controller/RegistryUserController.js";
+import {Login,Logout} from "./controller/loginController.js";
+import Profile from "./controller/perfilController.js";
+import Message from "./controller/messageController.js";
+import Ativity from "./controller/ativityController.js";
+import CONECTION from "./database/conection/conection.js"
 
 const APP = express()
 
 APP.use(bodyParser.json())
 APP.use(express.json())
+
+APP.use(Cors())
 
 /*ROUTES REGISTRY*/
 APP.post("/sign-up", RegistryUserController.Registry1)
@@ -18,7 +21,6 @@ APP.put("/activation_account", RegistryUserController.verifyCode)
 APP.put("/resend_activation_code", RegistryUserController.resendCode)
 APP.post("/add_interests", RegistryUserController.interests)
 APP.put("/add_description", RegistryUserController.addDescription)
-
 
 /*login route */
 APP.post("/sign-in", Login)
@@ -55,5 +57,4 @@ APP.delete("/del", (req, res) => {
     res.json({ message: "deleted" })
 })
 
-
-export default APP;
+export default APP

@@ -1,0 +1,36 @@
+.profilePhoto img,
+.profilePhoto {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.userInformation {
+    position: relative;
+    top: 100px;
+}
+
+.userInformation h1,
+.userInformation p {
+    font-weight: bold;
+}
+
+
+.cover {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #333333ea;
+
+}
+
+.cover i {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+}
+
+.activities .ativities{
+    margin-top: 150px;
+}

@@ -1,0 +1,42 @@
+.my-photo .photo {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #303030d5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-size: 200px;
+    color: white;
+}
+
+.my-photo {
+    justify-content: center;
+}
+
+.descrip textarea {
+    outline: none;
+    resize: none;
+    padding: 20px;
+    border-radius: 25px;
+    width: 300px;
+    height: 100px;
+    margin: 5px 0;
+}
+
+.descrip label{
+    display: block;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.descrip p {
+    width: 250px;
+    padding-bottom:50px;
+    margin-left: 20px;
+    text-align: left;
+    font-weight: bold;
+}

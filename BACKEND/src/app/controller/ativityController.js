@@ -1,4 +1,4 @@
-import CONECTION from "../database/conection/conection.js"
+import CONECTION from '../database/conection/conection.js';
 
 class Ativity {
     saveAtivity(req, res) {

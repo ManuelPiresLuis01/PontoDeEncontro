@@ -1,4 +1,4 @@
-import CONECTION from "../database/conection/conection.js"
+import CONECTION from '../database/conection/conection.js';
 import { hash } from "../auth/authBcryptService.js";
 import { sendActivationEmail } from "../auth/authEmailService.js";
 
@@ -26,13 +26,14 @@ class RegistryUser {
 
     async Registry1(req, res) {
         const { name, birth_date, email, gender, password } = req.body
-        const hash_Password = await hash(password)
-        const Code = Math.floor(100000 + Math.random() * 900000).toString();
-
+	
         if (!name || !birth_date || !email || !gender || !password) {
             return res.status(400).json({ message: "Preencha todos os campos obrigatórios!" });
         }
 
+        const hash_Password = await hash(password)
+        const Code = Math.floor(100000 + Math.random() * 900000).toString();
+       
         await CONECTION.query("SELECT * FROM users WHERE email = ?", [email], (error, response) => {
             if (error) {
                 console.error(error)
@@ -50,14 +51,14 @@ class RegistryUser {
                 console.error(error)
             } else {
                 await sendActivationEmail(email, Code)
-                res.status(201).json({ message: `usuario cadastrado com sucesso , verifique o codigo de ativação no seu email`, codigo: Code })
+                res.status(201).json({ message: `usuario cadastrado com sucesso , verifique o codigo de ativação no seu email`})
+                console.log(Code)
             }
         })
     }
 
     async verifyCode(req, res) {
         const { email, code } = req.body;
-
         if (!email || !code) {
             return res.status(400).json({ message: "Coloque o email e o código de ativação" });
         }
@@ -74,7 +75,7 @@ class RegistryUser {
 
             const activationCode = await results[0].activationCode;
 
-            if ((code === activationCode)) {
+            if((code === activationCode)) {
                 const updateSql = `UPDATE users SET activated = 1, activationCode = NULL WHERE email = ?`;
                 CONECTION.query(updateSql, [email], (updateError) => {
                     if (updateError) {
@@ -94,6 +95,7 @@ class RegistryUser {
         const { email } = req.body
         const code = Math.floor(100000 + Math.random() * 900000).toString();
         await sendActivationEmail(email, code)
+        console.log(code)
         const sql = `UPDATE users SET activationCode = ? WHERE email = ? `;
         CONECTION.query(sql, [code, email], (error, response) => {
             if (error) {

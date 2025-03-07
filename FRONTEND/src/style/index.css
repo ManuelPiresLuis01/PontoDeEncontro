@@ -1,0 +1,11 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+input{
+    color: white;
+    border:none;
+    outline:none;
+    background:none;
+}

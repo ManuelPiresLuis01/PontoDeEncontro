@@ -1,0 +1,105 @@
+.finish i {
+    animation: heartAnimation 2s alternate-reverse ease-in-out infinite;
+}
+
+.finish {
+    justify-content: center;
+}
+
+.finish h1 {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.finish h2 {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+.people h1 {
+    padding: 20px 0;
+    font-weight: bold;
+    font-size: 28px;
+    border-bottom: 1px solid white;
+    margin: 0 10px;
+}
+
+@keyframes heartAnimation {
+    0% {
+        font-size: 170px;
+    }
+
+    100% {
+        font-size: 200px;
+    }
+}
+
+.known {
+    cursor: pointer;
+    max-height: 80vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.known::-webkit-scrollbar {
+    width: 0;
+}
+
+.person {
+    cursor: pointer;
+    background-color: #8080809f;
+    display: flex;
+    padding: 10px;
+    justify-content: left;
+    gap: 20px;
+    align-items: center;
+    width: 310px;
+    border: 1px solid #ffffff73;
+    border-radius: 20px;
+}
+
+.person i {
+    font-size: 30px;
+}
+
+.person .photo,
+.person img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.person .photo {
+    background-color: gray;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
+
+.description .name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 0;
+}
+
+.description p {
+    margin: 0;
+}
+
+.description .about {
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+}

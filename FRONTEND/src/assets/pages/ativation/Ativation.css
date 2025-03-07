@@ -1,0 +1,51 @@
+.splashAtivation {
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.splashAtivation i {
+    font-size: 150px;
+    position: relative;
+    animation: flutuar 2s ease-in-out alternate infinite;
+}
+
+.splashAtivation p {
+    padding: 0 30px;
+    font-size: 25px;
+}
+
+.splashAtivation form p {
+    padding: 0 30px;
+    font-size: 23px;
+}
+
+.splashAtivation h1{
+   margin-bottom: 15px;
+   font-size: 32px;
+   font-weight: bold;
+}
+
+
+.splashAtivation span{
+    width: 300px;
+    text-align: left;
+    cursor:pointer;
+    margin-bottom: 20px;
+}
+
+.splashAtivation input{
+   text-align: center;
+   font-size: 30px;
+}
+
+@keyframes flutuar {
+    0% {
+        top: -10px;
+    }
+
+    100% {
+        top: 10px;
+    }
+}

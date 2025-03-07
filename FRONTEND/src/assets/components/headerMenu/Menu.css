@@ -1,0 +1,69 @@
+.menu {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    background-color: white;
+    height: 65px;
+}
+
+.menuMessage ul {
+    color: #ff9aaa;
+}
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.menu ul li {
+    border: 1px solid #ff9aaa;
+    background-color: #ff9aaa;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    list-style-type: none;
+}
+
+.menuMessage ul li {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+
+}
+
+.menu .photoMessage,
+.menu img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #ff9aaa;
+}
+
+.desc {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.desc .name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.desc .status {
+    font-size: 20px;
+    margin-left: -60px;
+}

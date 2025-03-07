@@ -1,0 +1,34 @@
+.Interesting h1 {
+    margin: 30px;
+    margin-top: 40px;
+}
+
+.interests {
+    margin-bottom: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.interest {
+    cursor: pointer;
+    width: 300px;
+    padding: 8px;
+    font-size: 25px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.clickedInterest {
+    cursor: pointer;
+    width: 300px;
+    padding: 8px;
+    font-size: 25px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #8080808e;
+    border: 1px solid #8080808e;
+}
